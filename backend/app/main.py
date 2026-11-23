@@ -1,4 +1,5 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 import tensorflow as tf
 import numpy as np
 from io import BytesIO
@@ -9,12 +10,27 @@ from .config import MODELS_PATH, CLASS_NAMES
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 print("Loading models....")
 MODELS = {
     plant_name: tf.keras.models.load_model(path, compile=False)
     for plant_name, path in MODELS_PATH.items()
 }
-print("Models loaded successfullt!")
+print("Models loaded successfully!")
 
 
 @app.get("/ping")
