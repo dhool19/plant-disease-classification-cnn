@@ -1,0 +1,55 @@
+
+# Python
+__pycache__/
+*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Ignore data directories
+data/
+**/data/
+
+# Environments
+venv/
+env/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+anaconda_projects/
+
+# Secrets & Environment Variables
+.env
+.env.*
+!.env.example
+
+# Operating System / IDE
+Thumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
